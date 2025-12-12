@@ -5,6 +5,8 @@ import Banner from '@/components/banner/banner';
 import Link from 'next/link';
 import styles from '@/components/banner/banner.module.css';
 
+export const dynamic = 'force-dynamic';
+
 export default async function HomePage() {
   const products: Product[] = await getProducts();
 
