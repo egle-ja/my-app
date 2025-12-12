@@ -1,34 +1,32 @@
-import { PrismaClient, Prisma } from './generated/client'
-import { PrismaPg } from '@prisma/adapter-pg'
+import { PrismaClient, Prisma } from './generated/client';
+import { PrismaPg } from '@prisma/adapter-pg';
 
-const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
-const prisma = new PrismaClient({ adapter })
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
+const prisma = new PrismaClient({ adapter });
 
 const productData: Prisma.ProductCreateInput[] = [
   {
-    id: '11',
-    title: "IKEA Chair",
+    title: 'IKEA Chair',
     category: 'Chairs',
     price: 49.99,
-    condition: 'good',
+    condition: 'Good',
     description: 'asdasd',
-    location: 'vilnius',
+    location: 'Vilnius',
   },
   {
-    id: '22',
-    title: "IKEA Table",
+    title: 'IKEA Table',
     category: 'Chairs',
     price: 109.99,
-    condition: 'good',
+    condition: 'Good',
     description: 'asdasd',
-    location: 'vilnius',
-  }
-]
+    location: 'Vilnius',
+  },
+];
 
 export async function main() {
   for (const p of productData) {
-    await prisma.product.create({ data: p })
+    await prisma.product.create({ data: p });
   }
 }
 
-main()
+main();

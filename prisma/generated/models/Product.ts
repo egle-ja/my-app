@@ -37,10 +37,10 @@ export type ProductSumAggregateOutputType = {
 export type ProductMinAggregateOutputType = {
   id: string | null
   title: string | null
-  category: string | null
+  category: $Enums.Category | null
   price: number | null
   currency: string | null
-  condition: string | null
+  condition: $Enums.Condition | null
   image: string | null
   description: string | null
   location: string | null
@@ -52,10 +52,10 @@ export type ProductMinAggregateOutputType = {
 export type ProductMaxAggregateOutputType = {
   id: string | null
   title: string | null
-  category: string | null
+  category: $Enums.Category | null
   price: number | null
   currency: string | null
-  condition: string | null
+  condition: $Enums.Condition | null
   image: string | null
   description: string | null
   location: string | null
@@ -224,10 +224,10 @@ export type ProductGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 export type ProductGroupByOutputType = {
   id: string
   title: string
-  category: string
+  category: $Enums.Category
   price: number
   currency: string
-  condition: string
+  condition: $Enums.Condition
   image: string | null
   description: string
   location: string
@@ -262,10 +262,10 @@ export type ProductWhereInput = {
   NOT?: Prisma.ProductWhereInput | Prisma.ProductWhereInput[]
   id?: Prisma.StringFilter<"Product"> | string
   title?: Prisma.StringFilter<"Product"> | string
-  category?: Prisma.StringFilter<"Product"> | string
+  category?: Prisma.EnumCategoryFilter<"Product"> | $Enums.Category
   price?: Prisma.IntFilter<"Product"> | number
   currency?: Prisma.StringFilter<"Product"> | string
-  condition?: Prisma.StringFilter<"Product"> | string
+  condition?: Prisma.EnumConditionFilter<"Product"> | $Enums.Condition
   image?: Prisma.StringNullableFilter<"Product"> | string | null
   description?: Prisma.StringFilter<"Product"> | string
   location?: Prisma.StringFilter<"Product"> | string
@@ -295,10 +295,10 @@ export type ProductWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.ProductWhereInput[]
   NOT?: Prisma.ProductWhereInput | Prisma.ProductWhereInput[]
   title?: Prisma.StringFilter<"Product"> | string
-  category?: Prisma.StringFilter<"Product"> | string
+  category?: Prisma.EnumCategoryFilter<"Product"> | $Enums.Category
   price?: Prisma.IntFilter<"Product"> | number
   currency?: Prisma.StringFilter<"Product"> | string
-  condition?: Prisma.StringFilter<"Product"> | string
+  condition?: Prisma.EnumConditionFilter<"Product"> | $Enums.Condition
   image?: Prisma.StringNullableFilter<"Product"> | string | null
   description?: Prisma.StringFilter<"Product"> | string
   location?: Prisma.StringFilter<"Product"> | string
@@ -333,10 +333,10 @@ export type ProductScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ProductScalarWhereWithAggregatesInput | Prisma.ProductScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Product"> | string
   title?: Prisma.StringWithAggregatesFilter<"Product"> | string
-  category?: Prisma.StringWithAggregatesFilter<"Product"> | string
+  category?: Prisma.EnumCategoryWithAggregatesFilter<"Product"> | $Enums.Category
   price?: Prisma.IntWithAggregatesFilter<"Product"> | number
   currency?: Prisma.StringWithAggregatesFilter<"Product"> | string
-  condition?: Prisma.StringWithAggregatesFilter<"Product"> | string
+  condition?: Prisma.EnumConditionWithAggregatesFilter<"Product"> | $Enums.Condition
   image?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   description?: Prisma.StringWithAggregatesFilter<"Product"> | string
   location?: Prisma.StringWithAggregatesFilter<"Product"> | string
@@ -348,10 +348,10 @@ export type ProductScalarWhereWithAggregatesInput = {
 export type ProductCreateInput = {
   id?: string
   title: string
-  category: string
+  category: $Enums.Category
   price?: number
   currency?: string
-  condition?: string
+  condition?: $Enums.Condition
   image?: string | null
   description: string
   location?: string
@@ -363,10 +363,10 @@ export type ProductCreateInput = {
 export type ProductUncheckedCreateInput = {
   id?: string
   title: string
-  category: string
+  category: $Enums.Category
   price?: number
   currency?: string
-  condition?: string
+  condition?: $Enums.Condition
   image?: string | null
   description: string
   location?: string
@@ -378,10 +378,10 @@ export type ProductUncheckedCreateInput = {
 export type ProductUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  category?: Prisma.StringFieldUpdateOperationsInput | string
+  category?: Prisma.EnumCategoryFieldUpdateOperationsInput | $Enums.Category
   price?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
-  condition?: Prisma.StringFieldUpdateOperationsInput | string
+  condition?: Prisma.EnumConditionFieldUpdateOperationsInput | $Enums.Condition
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.StringFieldUpdateOperationsInput | string
@@ -393,10 +393,10 @@ export type ProductUpdateInput = {
 export type ProductUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  category?: Prisma.StringFieldUpdateOperationsInput | string
+  category?: Prisma.EnumCategoryFieldUpdateOperationsInput | $Enums.Category
   price?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
-  condition?: Prisma.StringFieldUpdateOperationsInput | string
+  condition?: Prisma.EnumConditionFieldUpdateOperationsInput | $Enums.Condition
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.StringFieldUpdateOperationsInput | string
@@ -408,10 +408,10 @@ export type ProductUncheckedUpdateInput = {
 export type ProductCreateManyInput = {
   id?: string
   title: string
-  category: string
+  category: $Enums.Category
   price?: number
   currency?: string
-  condition?: string
+  condition?: $Enums.Condition
   image?: string | null
   description: string
   location?: string
@@ -423,10 +423,10 @@ export type ProductCreateManyInput = {
 export type ProductUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  category?: Prisma.StringFieldUpdateOperationsInput | string
+  category?: Prisma.EnumCategoryFieldUpdateOperationsInput | $Enums.Category
   price?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
-  condition?: Prisma.StringFieldUpdateOperationsInput | string
+  condition?: Prisma.EnumConditionFieldUpdateOperationsInput | $Enums.Condition
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.StringFieldUpdateOperationsInput | string
@@ -438,10 +438,10 @@ export type ProductUpdateManyMutationInput = {
 export type ProductUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  category?: Prisma.StringFieldUpdateOperationsInput | string
+  category?: Prisma.EnumCategoryFieldUpdateOperationsInput | $Enums.Category
   price?: Prisma.IntFieldUpdateOperationsInput | number
   currency?: Prisma.StringFieldUpdateOperationsInput | string
-  condition?: Prisma.StringFieldUpdateOperationsInput | string
+  condition?: Prisma.EnumConditionFieldUpdateOperationsInput | $Enums.Condition
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.StringFieldUpdateOperationsInput | string
@@ -507,12 +507,20 @@ export type StringFieldUpdateOperationsInput = {
   set?: string
 }
 
+export type EnumCategoryFieldUpdateOperationsInput = {
+  set?: $Enums.Category
+}
+
 export type IntFieldUpdateOperationsInput = {
   set?: number
   increment?: number
   decrement?: number
   multiply?: number
   divide?: number
+}
+
+export type EnumConditionFieldUpdateOperationsInput = {
+  set?: $Enums.Condition
 }
 
 export type NullableStringFieldUpdateOperationsInput = {
@@ -597,10 +605,10 @@ export type $ProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     title: string
-    category: string
+    category: $Enums.Category
     price: number
     currency: string
-    condition: string
+    condition: $Enums.Condition
     image: string | null
     description: string
     location: string
@@ -1032,10 +1040,10 @@ export interface Prisma__ProductClient<T, Null = never, ExtArgs extends runtime.
 export interface ProductFieldRefs {
   readonly id: Prisma.FieldRef<"Product", 'String'>
   readonly title: Prisma.FieldRef<"Product", 'String'>
-  readonly category: Prisma.FieldRef<"Product", 'String'>
+  readonly category: Prisma.FieldRef<"Product", 'Category'>
   readonly price: Prisma.FieldRef<"Product", 'Int'>
   readonly currency: Prisma.FieldRef<"Product", 'String'>
-  readonly condition: Prisma.FieldRef<"Product", 'String'>
+  readonly condition: Prisma.FieldRef<"Product", 'Condition'>
   readonly image: Prisma.FieldRef<"Product", 'String'>
   readonly description: Prisma.FieldRef<"Product", 'String'>
   readonly location: Prisma.FieldRef<"Product", 'String'>

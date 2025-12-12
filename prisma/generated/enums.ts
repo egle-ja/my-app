@@ -15,3 +15,23 @@ export const Availability = {
 } as const
 
 export type Availability = (typeof Availability)[keyof typeof Availability]
+
+
+export const Category = {
+  Beds: 'Beds',
+  Tables: 'Tables',
+  Chairs: 'Chairs',
+  Textiles: 'Textiles',
+  Storage: 'Storage'
+} as const
+
+export type Category = (typeof Category)[keyof typeof Category]
+
+
+export const Condition = {
+  Perfect: 'Perfect',
+  Good: 'Good',
+  Bad: 'Bad'
+} as const
+
+export type Condition = (typeof Condition)[keyof typeof Condition]

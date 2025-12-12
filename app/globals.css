@@ -1,15 +1,3 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html,
 body {
   max-width: 100vw;
@@ -17,8 +5,6 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -30,13 +16,57 @@ body {
   margin: 0;
 }
 
+main {
+  padding: 0 4rem 4rem;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+section {
+  padding-top: 4rem;
+}
+
+.button-link {
+  display: inline-block; /* needed to apply padding */
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 1.5rem; /* rounded corners */
+  text-align: center;
+  transition: background-color 0.2s;
+  font-weight: bold;
+  font-size: 0.9rem;
+  min-width: 150px;
+  background-color: white;
+  color: black;
+  box-shadow: inset 0 0 0 1px #000000;
+  height: 48px;
+
+  &:hover {
+    background-color: #d5d5d5;
   }
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  padding-bottom: 3rem;
+  justify-content: center;
+}
+
+.heading-with-controls {
+  justify-content: space-between;
+}
+
+button {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
 }

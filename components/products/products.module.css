@@ -1,0 +1,59 @@
+.products {
+  display: grid;
+  list-style: none;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  background-color: #dedede;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.like {
+  z-index: 1;
+}
+
+.description {
+  line-height: 1.4;
+}
+
+.price {
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.location {
+  display: flex;
+  font-size: 14px;
+  gap: 3px;
+  padding: 5px 0;
+}
+
+.delete {
+  display: flex;
+  justify-content: end;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.error {
+  color: darkred;
+}

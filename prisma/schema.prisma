@@ -10,10 +10,10 @@ datasource db {
 model Product {
   id           String       @id @default(cuid())
   title        String
-  category     String
+  category     Category
   price        Int          @default(50)
   currency     String       @default("EUR")
-  condition    String       @default("Good")
+  condition    Condition       @default(Good)
   image        String?
   description  String
   location     String       @default("Vilnius")
@@ -25,4 +25,18 @@ model Product {
 enum Availability {
   IN_STOCK
   SOLD
+}
+
+enum Category {
+  Beds
+  Tables
+  Chairs
+  Textiles
+  Storage
+}
+
+enum Condition {
+  Perfect
+  Good
+  Bad
 }

@@ -1,51 +1,25 @@
-import prisma from '@/lib/prisma';
-import styles from './page.module.css';
-import {addProduct, getProducts, deleteProduct} from "@/lib/products";
-import {Product} from "@/prisma/generated/client";
+import { getProducts } from '@/lib/products';
+import { Product } from '@/prisma/generated/client';
+import ProductList from '@/components/products/product-list';
+import Banner from '@/components/banner/banner';
+import Link from 'next/link';
+import styles from '@/components/banner/banner.module.css';
 
-export default async function Home() {
+export default async function HomePage() {
   const products: Product[] = await getProducts();
+
   return (
-    <main>
-    <ul className={styles.products}>
-      {products.map((product) => (
-          <li className={styles.product} key={product.id}>
-            <div className={styles.productDescription}>
-            <div>{product.title}</div>
-            <div>{product.category}</div>
-            <div>{product.price}</div>
-            <div>{product.condition}</div>
-            <div>{product.description}</div>
-            <div>{product.location}</div>
-            </div>
-            <form action={deleteProduct}>
-              <input type="hidden" name="id" value={product.id} />
-              <button type="submit">Delete product</button>
-            </form>
-          </li>
-      ))}
-    </ul>
-      <form action={addProduct}>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          placeholder="Enter your product title"
-        />
-        <input
-          type="text"
-          id="category"
-          name="category"
-          placeholder="Enter your product category"
-        />
-        <textarea
-          id="description"
-          name="description"
-          placeholder="Write your description here..."
-          rows={6}
-        />
-        <button type="submit">Add product</button>
-      </form>
-    </main>
+    <>
+      <Banner />
+      <section>
+        <div className="heading heading-with-controls">
+          <h2>Newest products</h2>
+          <Link className="button-link" href="/products">
+            Explore all
+          </Link>
+        </div>
+        <ProductList products={products} />
+      </section>
+    </>
   );
 }
