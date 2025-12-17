@@ -1,21 +1,16 @@
 'use client';
 
 import styles from './products.module.css';
-import { deleteProduct } from '@/lib/products';
+import { deleteProduct } from '@/actions/products';
 import { Product } from '@/prisma/generated/client';
-import ProductItem from '@/components/products/product-item';
+import ProductListItem from '@/components/products/product-list-item';
 import Image from 'next/image';
 import trash from '@/assets/trash.svg';
 import { toast } from 'react-toastify';
+import { getSortedProducts } from '@/lib/utils';
 
 interface ProductWrapper {
   products: Product[];
-}
-
-function getSortedProducts(items: Product[]) {
-  return items.sort(
-    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-  );
 }
 
 export default function ProductList({ products }: ProductWrapper) {
@@ -35,7 +30,7 @@ export default function ProductList({ products }: ProductWrapper) {
     <ul className={styles.products}>
       {sortedProducts.map((product) => (
         <li key={product.id}>
-          <ProductItem product={product} />
+          <ProductListItem product={product} />
           <form className={styles.delete} action={handleDelete}>
             <input type="hidden" name="id" value={product.id} />
             <button type="submit">

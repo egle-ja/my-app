@@ -1,7 +1,13 @@
-import { getProduct } from '@/lib/products';
+import { getProduct } from '@/actions/products';
 
-// @ts-ignore
-export default async function ProductPage({ params }) {
+import ProductItem from '@/components/products/product-item';
+
+interface ProductPageProps {
+  params: {
+    id: string;
+  };
+}
+export default async function ProductPage({ params }: ProductPageProps) {
   const { id } = await params;
   const product = await getProduct(id);
 
@@ -9,13 +15,8 @@ export default async function ProductPage({ params }) {
     return <>sorry</>;
   }
   return (
-    <div>
-      <div>{product.title}</div>
-      <div>{product.category}</div>
-      <div>{product.price}</div>
-      <div>{product.condition}</div>
-      <div>{product.description}</div>
-      <div>{product.location}</div>
-    </div>
+    <>
+      <ProductItem product={product} />
+    </>
   );
 }

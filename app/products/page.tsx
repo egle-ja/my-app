@@ -1,6 +1,6 @@
 import ProductList from '@/components/products/product-list';
 import { Product } from '@/prisma/generated/client';
-import { getProducts } from '@/lib/products';
+import { getProducts } from '@/actions/products';
 import Link from 'next/link';
 
 export default async function ProductsPage() {

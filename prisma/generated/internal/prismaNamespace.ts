@@ -525,6 +525,7 @@ export const ProductScalarFieldEnum = {
   currency: 'currency',
   condition: 'condition',
   image: 'image',
+  imagePublicId: 'imagePublicId',
   description: 'description',
   location: 'location',
   availability: 'availability',

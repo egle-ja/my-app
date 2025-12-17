@@ -1,9 +1,8 @@
-import { getProducts } from '@/lib/products';
+import { getProducts } from '@/actions/products';
 import { Product } from '@/prisma/generated/client';
 import ProductList from '@/components/products/product-list';
 import Banner from '@/components/banner/banner';
 import Link from 'next/link';
-import styles from '@/components/banner/banner.module.css';
 
 export const dynamic = 'force-dynamic';
 

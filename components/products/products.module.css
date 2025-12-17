@@ -10,10 +10,20 @@
   flex-direction: column;
 }
 
-.image {
+.imageWrapper {
   background-color: #dedede;
   height: 200px;
   margin-bottom: 20px;
+  position: relative;
+}
+
+.clickableImageWrapper {
+  width: 400px;
+  height: 300px;
+}
+
+.image {
+  object-fit: cover;
 }
 
 .heading {

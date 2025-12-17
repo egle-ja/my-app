@@ -1,0 +1,10 @@
+.imageWrapper {
+  background-color: #dedede;
+  height: 500px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.image {
+  object-fit: cover;
+}

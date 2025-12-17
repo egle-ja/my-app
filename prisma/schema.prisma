@@ -5,7 +5,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model Product {
@@ -16,6 +15,7 @@ model Product {
   currency     String       @default("EUR")
   condition    Condition       @default(Good)
   image        String?
+  imagePublicId String?
   description  String
   location     String       @default("Vilnius")
   availability Availability   @default(IN_STOCK)

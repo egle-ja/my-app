@@ -69,4 +69,10 @@ button {
   font: inherit;
   color: inherit;
   cursor: pointer;
+
+  &:disabled {
+    color: gray;
+    cursor: default;
+    pointer-events: none;
+  }
 }

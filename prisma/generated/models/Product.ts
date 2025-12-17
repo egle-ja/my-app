@@ -42,6 +42,7 @@ export type ProductMinAggregateOutputType = {
   currency: string | null
   condition: $Enums.Condition | null
   image: string | null
+  imagePublicId: string | null
   description: string | null
   location: string | null
   availability: $Enums.Availability | null
@@ -57,6 +58,7 @@ export type ProductMaxAggregateOutputType = {
   currency: string | null
   condition: $Enums.Condition | null
   image: string | null
+  imagePublicId: string | null
   description: string | null
   location: string | null
   availability: $Enums.Availability | null
@@ -72,6 +74,7 @@ export type ProductCountAggregateOutputType = {
   currency: number
   condition: number
   image: number
+  imagePublicId: number
   description: number
   location: number
   availability: number
@@ -97,6 +100,7 @@ export type ProductMinAggregateInputType = {
   currency?: true
   condition?: true
   image?: true
+  imagePublicId?: true
   description?: true
   location?: true
   availability?: true
@@ -112,6 +116,7 @@ export type ProductMaxAggregateInputType = {
   currency?: true
   condition?: true
   image?: true
+  imagePublicId?: true
   description?: true
   location?: true
   availability?: true
@@ -127,6 +132,7 @@ export type ProductCountAggregateInputType = {
   currency?: true
   condition?: true
   image?: true
+  imagePublicId?: true
   description?: true
   location?: true
   availability?: true
@@ -229,6 +235,7 @@ export type ProductGroupByOutputType = {
   currency: string
   condition: $Enums.Condition
   image: string | null
+  imagePublicId: string | null
   description: string
   location: string
   availability: $Enums.Availability
@@ -267,6 +274,7 @@ export type ProductWhereInput = {
   currency?: Prisma.StringFilter<"Product"> | string
   condition?: Prisma.EnumConditionFilter<"Product"> | $Enums.Condition
   image?: Prisma.StringNullableFilter<"Product"> | string | null
+  imagePublicId?: Prisma.StringNullableFilter<"Product"> | string | null
   description?: Prisma.StringFilter<"Product"> | string
   location?: Prisma.StringFilter<"Product"> | string
   availability?: Prisma.EnumAvailabilityFilter<"Product"> | $Enums.Availability
@@ -282,6 +290,7 @@ export type ProductOrderByWithRelationInput = {
   currency?: Prisma.SortOrder
   condition?: Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
+  imagePublicId?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrder
   location?: Prisma.SortOrder
   availability?: Prisma.SortOrder
@@ -300,6 +309,7 @@ export type ProductWhereUniqueInput = Prisma.AtLeast<{
   currency?: Prisma.StringFilter<"Product"> | string
   condition?: Prisma.EnumConditionFilter<"Product"> | $Enums.Condition
   image?: Prisma.StringNullableFilter<"Product"> | string | null
+  imagePublicId?: Prisma.StringNullableFilter<"Product"> | string | null
   description?: Prisma.StringFilter<"Product"> | string
   location?: Prisma.StringFilter<"Product"> | string
   availability?: Prisma.EnumAvailabilityFilter<"Product"> | $Enums.Availability
@@ -315,6 +325,7 @@ export type ProductOrderByWithAggregationInput = {
   currency?: Prisma.SortOrder
   condition?: Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
+  imagePublicId?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrder
   location?: Prisma.SortOrder
   availability?: Prisma.SortOrder
@@ -338,6 +349,7 @@ export type ProductScalarWhereWithAggregatesInput = {
   currency?: Prisma.StringWithAggregatesFilter<"Product"> | string
   condition?: Prisma.EnumConditionWithAggregatesFilter<"Product"> | $Enums.Condition
   image?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
+  imagePublicId?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   description?: Prisma.StringWithAggregatesFilter<"Product"> | string
   location?: Prisma.StringWithAggregatesFilter<"Product"> | string
   availability?: Prisma.EnumAvailabilityWithAggregatesFilter<"Product"> | $Enums.Availability
@@ -353,6 +365,7 @@ export type ProductCreateInput = {
   currency?: string
   condition?: $Enums.Condition
   image?: string | null
+  imagePublicId?: string | null
   description: string
   location?: string
   availability?: $Enums.Availability
@@ -368,6 +381,7 @@ export type ProductUncheckedCreateInput = {
   currency?: string
   condition?: $Enums.Condition
   image?: string | null
+  imagePublicId?: string | null
   description: string
   location?: string
   availability?: $Enums.Availability
@@ -383,6 +397,7 @@ export type ProductUpdateInput = {
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   condition?: Prisma.EnumConditionFieldUpdateOperationsInput | $Enums.Condition
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imagePublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.StringFieldUpdateOperationsInput | string
   availability?: Prisma.EnumAvailabilityFieldUpdateOperationsInput | $Enums.Availability
@@ -398,6 +413,7 @@ export type ProductUncheckedUpdateInput = {
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   condition?: Prisma.EnumConditionFieldUpdateOperationsInput | $Enums.Condition
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imagePublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.StringFieldUpdateOperationsInput | string
   availability?: Prisma.EnumAvailabilityFieldUpdateOperationsInput | $Enums.Availability
@@ -413,6 +429,7 @@ export type ProductCreateManyInput = {
   currency?: string
   condition?: $Enums.Condition
   image?: string | null
+  imagePublicId?: string | null
   description: string
   location?: string
   availability?: $Enums.Availability
@@ -428,6 +445,7 @@ export type ProductUpdateManyMutationInput = {
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   condition?: Prisma.EnumConditionFieldUpdateOperationsInput | $Enums.Condition
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imagePublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.StringFieldUpdateOperationsInput | string
   availability?: Prisma.EnumAvailabilityFieldUpdateOperationsInput | $Enums.Availability
@@ -443,6 +461,7 @@ export type ProductUncheckedUpdateManyInput = {
   currency?: Prisma.StringFieldUpdateOperationsInput | string
   condition?: Prisma.EnumConditionFieldUpdateOperationsInput | $Enums.Condition
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imagePublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.StringFieldUpdateOperationsInput | string
   location?: Prisma.StringFieldUpdateOperationsInput | string
   availability?: Prisma.EnumAvailabilityFieldUpdateOperationsInput | $Enums.Availability
@@ -458,6 +477,7 @@ export type ProductCountOrderByAggregateInput = {
   currency?: Prisma.SortOrder
   condition?: Prisma.SortOrder
   image?: Prisma.SortOrder
+  imagePublicId?: Prisma.SortOrder
   description?: Prisma.SortOrder
   location?: Prisma.SortOrder
   availability?: Prisma.SortOrder
@@ -477,6 +497,7 @@ export type ProductMaxOrderByAggregateInput = {
   currency?: Prisma.SortOrder
   condition?: Prisma.SortOrder
   image?: Prisma.SortOrder
+  imagePublicId?: Prisma.SortOrder
   description?: Prisma.SortOrder
   location?: Prisma.SortOrder
   availability?: Prisma.SortOrder
@@ -492,6 +513,7 @@ export type ProductMinOrderByAggregateInput = {
   currency?: Prisma.SortOrder
   condition?: Prisma.SortOrder
   image?: Prisma.SortOrder
+  imagePublicId?: Prisma.SortOrder
   description?: Prisma.SortOrder
   location?: Prisma.SortOrder
   availability?: Prisma.SortOrder
@@ -545,6 +567,7 @@ export type ProductSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   currency?: boolean
   condition?: boolean
   image?: boolean
+  imagePublicId?: boolean
   description?: boolean
   location?: boolean
   availability?: boolean
@@ -560,6 +583,7 @@ export type ProductSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   currency?: boolean
   condition?: boolean
   image?: boolean
+  imagePublicId?: boolean
   description?: boolean
   location?: boolean
   availability?: boolean
@@ -575,6 +599,7 @@ export type ProductSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   currency?: boolean
   condition?: boolean
   image?: boolean
+  imagePublicId?: boolean
   description?: boolean
   location?: boolean
   availability?: boolean
@@ -590,6 +615,7 @@ export type ProductSelectScalar = {
   currency?: boolean
   condition?: boolean
   image?: boolean
+  imagePublicId?: boolean
   description?: boolean
   location?: boolean
   availability?: boolean
@@ -597,7 +623,7 @@ export type ProductSelectScalar = {
   updatedAt?: boolean
 }
 
-export type ProductOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "category" | "price" | "currency" | "condition" | "image" | "description" | "location" | "availability" | "createdAt" | "updatedAt", ExtArgs["result"]["product"]>
+export type ProductOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "category" | "price" | "currency" | "condition" | "image" | "imagePublicId" | "description" | "location" | "availability" | "createdAt" | "updatedAt", ExtArgs["result"]["product"]>
 
 export type $ProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Product"
@@ -610,6 +636,7 @@ export type $ProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     currency: string
     condition: $Enums.Condition
     image: string | null
+    imagePublicId: string | null
     description: string
     location: string
     availability: $Enums.Availability
@@ -1045,6 +1072,7 @@ export interface ProductFieldRefs {
   readonly currency: Prisma.FieldRef<"Product", 'String'>
   readonly condition: Prisma.FieldRef<"Product", 'Condition'>
   readonly image: Prisma.FieldRef<"Product", 'String'>
+  readonly imagePublicId: Prisma.FieldRef<"Product", 'String'>
   readonly description: Prisma.FieldRef<"Product", 'String'>
   readonly location: Prisma.FieldRef<"Product", 'String'>
   readonly availability: Prisma.FieldRef<"Product", 'Availability'>
