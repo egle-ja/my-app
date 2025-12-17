@@ -31,7 +31,7 @@ export default function ProductItem({ product }: ProductWrapper) {
       condition: product.condition,
       price: (product.price / 100).toFixed(2),
       description: product.description,
-      image: product.image,
+      image: product.image ?? undefined,
     },
   });
 

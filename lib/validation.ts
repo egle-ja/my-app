@@ -13,7 +13,9 @@ export const createProductSchema = z.object({
     .string()
     .min(10, 'Description must be at least 10 chars')
     .max(150, 'Description must be at most 150 characters'),
-  image: z.instanceof(File, 'Image is required'),
+  image: z.instanceof(File, {
+    message: 'Image is required',
+  }),
 });
 
 export type CreateProductInput = z.infer<typeof createProductSchema>;
