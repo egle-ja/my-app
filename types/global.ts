@@ -5,6 +5,11 @@ export enum Status {
   ERROR = 'error',
 }
 
+export enum ProductListMode {
+  ALL = 'All',
+  FAVOURITES = 'Favourites',
+}
+
 export type FormResponse = {
   status: Status.SUCCESS | Status.ERROR;
   message: string;
@@ -12,4 +17,8 @@ export type FormResponse = {
 
 export interface ProductWrapper {
   product: Product;
+}
+
+export interface ProductsWrapper {
+  products: Product[];
 }

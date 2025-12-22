@@ -9,11 +9,11 @@ import trash from '@/assets/trash.svg';
 import { toast } from 'react-toastify';
 import { getSortedProducts } from '@/lib/utils';
 
-interface ProductWrapper {
+interface ProductsWrapper {
   products: Product[];
 }
 
-export default function ProductList({ products }: ProductWrapper) {
+export default function ProductList({ products }: ProductsWrapper) {
   const sortedProducts = getSortedProducts(products);
 
   async function handleDelete(formData: FormData) {

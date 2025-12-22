@@ -19,6 +19,7 @@ model Product {
   description  String
   location     String       @default("Vilnius")
   availability Availability   @default(IN_STOCK)
+  isLiked      Boolean      @default(false)
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
 }

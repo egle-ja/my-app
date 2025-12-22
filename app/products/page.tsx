@@ -1,7 +1,7 @@
-import ProductList from '@/components/products/product-list';
 import { Product } from '@/prisma/generated/client';
 import { getProducts } from '@/actions/products';
 import Link from 'next/link';
+import Products from '@/components/products/products';
 
 export default async function ProductsPage() {
   const products: Product[] = await getProducts();
@@ -14,7 +14,7 @@ export default async function ProductsPage() {
           Add a product
         </Link>
       </div>
-      <ProductList products={products} />
+      <Products products={products} />
     </section>
   );
 }

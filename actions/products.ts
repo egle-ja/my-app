@@ -220,3 +220,28 @@ export async function updateProduct(id: string, data: UpdateProductInput) {
     };
   }
 }
+
+export async function toggleFavourite(id: string, data: Product) {
+  try {
+    const { isLiked, ...rest } = data;
+    await prisma.product.update({
+      where: { id },
+      data: {
+        ...rest,
+        isLiked: !isLiked,
+      },
+    });
+
+    revalidatePath('/', 'layout');
+
+    return {
+      status: Status.SUCCESS,
+      message: 'Product added to favourites',
+    };
+  } catch (err) {
+    return {
+      status: Status.ERROR,
+      message: 'Product could not be added to favourites',
+    };
+  }
+}
