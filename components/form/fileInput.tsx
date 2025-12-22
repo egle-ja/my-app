@@ -4,6 +4,8 @@ import { useRef, useState } from 'react';
 import styles from '../products/products.module.css';
 import Image from 'next/image';
 import imagePlaceholder from '@/assets/image-placeholder.svg';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
 
 interface FileInputProps {
   name: string;
@@ -19,8 +21,8 @@ export default function FileInput({ name, defaultImage }: FileInputProps) {
     <Controller
       control={control}
       name={name}
-      defaultValue={null}
-      render={({ field, fieldState }) => (
+      defaultValue={defaultImage}
+      render={({ field, fieldState, formState }) => (
         <>
           <button
             type="button"
@@ -39,6 +41,7 @@ export default function FileInput({ name, defaultImage }: FileInputProps) {
             accept="image/*"
             defaultValue={undefined}
             hidden
+            name={field.name}
             ref={(el) => {
               field.ref(el);
               fileInputRef.current = el;
@@ -49,9 +52,15 @@ export default function FileInput({ name, defaultImage }: FileInputProps) {
               if (file) setPreview(URL.createObjectURL(file));
             }}
           />
-          {fieldState.error && (
-            <p className={styles.error}>{fieldState.error.message}</p>
-          )}
+          <FormControl
+            fullWidth
+            error={!!fieldState.error?.message || !!formState.errors[name]}
+          >
+            <FormHelperText>
+              {fieldState?.error?.message ||
+                formState.errors?.[name]?.toString()}
+            </FormHelperText>
+          </FormControl>
         </>
       )}
     />

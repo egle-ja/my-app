@@ -6,7 +6,7 @@ export default function AddPage() {
     <section>
       <div className="heading heading-with-controls">
         <h2>Add a product</h2>
-        <Link className="button-link" href="/products">
+        <Link className="button" href="/products">
           Explore all
         </Link>
       </div>

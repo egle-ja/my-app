@@ -1,6 +1,6 @@
-import { getProduct } from '@/actions/products';
-
-import ProductItem from '@/components/products/product-item';
+import { getProduct, updateProductNew } from '@/actions/products';
+import EditProductFormNew from '@/components/products/edit-product-for-new';
+import { mapProductToFormValues } from '@/lib/utils';
 
 interface ProductPageProps {
   params: {
@@ -14,9 +14,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
   if (!product) {
     return <>sorry</>;
   }
-  return (
-    <>
-      <ProductItem product={product} />
-    </>
-  );
+
+  const formValues = mapProductToFormValues(product);
+
+  return <EditProductFormNew action={updateProductNew} values={formValues} />;
 }

@@ -12,10 +12,10 @@ export default function Banner() {
         This is a website to add, delete and edit fake products.
       </p>
       <div className={styles.controls}>
-        <Link className="button-link" href="/products">
+        <Link className="button" href="/products">
           Explore
         </Link>
-        <Link className={`${styles.add} button-link`} href="/add">
+        <Link className={`button ${styles.add} `} href="/add">
           Add
         </Link>
       </div>

@@ -8,7 +8,7 @@ import { ProductWrapper } from '@/types/global';
 import { getConvertedPrice } from '@/lib/utils';
 
 export default function ProductListItem({ product }: ProductWrapper) {
-  const price = getConvertedPrice(product);
+  const price = getConvertedPrice(product.price);
 
   return (
     <Link href={`/products/${product.id}`} className={styles.product}>

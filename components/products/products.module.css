@@ -12,13 +12,15 @@
 
 .imageWrapper {
   background-color: #dedede;
-  height: 200px;
-  margin-bottom: 20px;
+  height: 250px;
   position: relative;
 }
 
+.imageWrapperSingleItem {
+  height: 500px;
+}
+
 .clickableImageWrapper {
-  width: 400px;
   height: 300px;
 }
 
@@ -31,6 +33,7 @@
   justify-content: space-between;
   font-weight: bold;
   text-transform: uppercase;
+  margin-top: 20px;
 }
 
 .like {
@@ -67,3 +70,20 @@
 .error {
   color: darkred;
 }
+
+.productPreview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  > :last-child:nth-child(odd) {
+    grid-column: span 2;
+  }
+}
+
+.productPreviewDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+}
+

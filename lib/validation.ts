@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { string, z } from 'zod';
 import { Category, Condition } from '@/prisma/generated/enums';
 
 export const createProductSchema = z.object({
@@ -41,3 +41,11 @@ export const updateProductSchema = z.object({
 });
 
 export type UpdateProductInput = z.infer<typeof updateProductSchema>;
+
+export const updateProductWithIdSchema = updateProductSchema.extend({
+  id: z.string(),
+});
+
+export type UpdateProductWithIdInput = z.infer<
+  typeof updateProductWithIdSchema
+>;

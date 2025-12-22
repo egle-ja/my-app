@@ -10,7 +10,7 @@ export default async function ProductsPage() {
     <section>
       <div className="heading heading-with-controls">
         <h2>All products</h2>
-        <Link className="button-link" href="/add">
+        <Link className="button" href="/add">
           Add a product
         </Link>
       </div>

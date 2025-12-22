@@ -15,7 +15,7 @@ export default async function HomePage() {
       <section>
         <div className="heading heading-with-controls">
           <h2>Newest products</h2>
-          <Link className="button-link" href="/products">
+          <Link className="button" href="/products">
             Explore all
           </Link>
         </div>

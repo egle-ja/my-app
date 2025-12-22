@@ -10,7 +10,6 @@ import { Category, Condition } from '@/prisma/generated/enums';
 import { addProduct } from '@/actions/products';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
-import TextAreaInput from '@/components/form/textAreaInput';
 
 export default function AddProductForm() {
   const router = useRouter();
@@ -36,13 +35,13 @@ export default function AddProductForm() {
         <TextInput name="price" placeholder="00.00" />
         <SelectInput name="category" options={Object.values(Category)} />
         <SelectInput name="condition" options={Object.values(Condition)} />
-        <TextAreaInput
-          name="description"
-          placeholder="Description..."
-          rows={3}
-        />
+        <TextInput rows={4} name="description" placeholder="Description..." />
         <FileInput name="image" />
-        <button type="submit" disabled={methods.formState.isSubmitting}>
+        <button
+          className="button buttonStandalone"
+          type="submit"
+          disabled={methods.formState.isSubmitting}
+        >
           {methods.formState.isSubmitting ? 'Loading...' : 'Add Product'}
         </button>
       </form>

@@ -8,9 +8,11 @@ import {
   CreateProductInput,
   createProductSchema,
   UpdateProductInput,
+  UpdateProductWithIdInput,
+  updateProductWithIdSchema,
 } from '@/lib/validation';
 import { uploadImage, deleteImage } from '@/lib/cloudinary';
-import { z } from 'zod';
+import { z, ZodError } from 'zod';
 
 export async function getProducts(): Promise<Product[]> {
   return prisma.product.findMany();
@@ -39,9 +41,6 @@ export async function addProduct(
 
     const rawPrice = validation.data.price;
 
-    if (typeof rawPrice !== 'string' || !rawPrice) {
-      console.log('Price missing or invalid');
-    }
     const priceInCents = Math.round(parseFloat(rawPrice as string) * 100);
 
     let uploadedImage;
@@ -49,6 +48,8 @@ export async function addProduct(
     try {
       uploadedImage = await uploadImage(image);
     } catch (error) {
+      // console.log(error);
+
       throw new Error('Failed to upload image');
     }
 
@@ -102,6 +103,77 @@ export async function deleteProduct(formData: FormData) {
     return {
       status: Status.ERROR,
       message: 'Product could not be deleted',
+    };
+  }
+}
+
+type ActionState = {
+  errors: ReturnType<typeof z.flattenError>['fieldErrors'];
+  values: UpdateProductWithIdInput;
+  success?: boolean;
+};
+
+export async function updateProductNew(
+  state: ActionState,
+  formData: FormData,
+): Promise<ActionState> {
+  const serverSchema = updateProductWithIdSchema;
+  const data = Object.fromEntries(formData);
+  const validation = serverSchema.safeParse(data);
+
+  try {
+    if (!validation.success) {
+      console.log(z.flattenError(validation.error).fieldErrors);
+      return {
+        values: state.values,
+        errors: z.flattenError(validation.error).fieldErrors,
+        success: false,
+      };
+    }
+
+    const { id, image, ...rest } = validation.data;
+
+    const currentProduct = await getProduct(id);
+    const currentImagePublicId = currentProduct?.imagePublicId;
+
+    let imageUrl: string | undefined;
+    let imagePublicId: string | undefined;
+
+    if (image instanceof File && image.size > 0) {
+      const uploaded = await uploadImage(image);
+      imageUrl = uploaded.imageUrl;
+      imagePublicId = uploaded.publicId;
+
+      await deleteImage(currentImagePublicId);
+    }
+    const rawPrice = validation.data.price;
+
+    const priceInCents = Math.round(parseFloat(rawPrice as string) * 100);
+
+    await prisma.product.update({
+      where: { id },
+      data: {
+        ...rest,
+        price: priceInCents,
+        ...(imageUrl ? { image: imageUrl, imagePublicId } : {}),
+      },
+    });
+
+    revalidatePath('/', 'layout');
+
+    return {
+      values: validation.data,
+      errors: {},
+      success: true,
+    };
+  } catch (error) {
+    console.error('e', error);
+
+    return {
+      values: state.values,
+      errors:
+        error instanceof ZodError ? z.flattenError(error).fieldErrors : {},
+      success: false,
     };
   }
 }
